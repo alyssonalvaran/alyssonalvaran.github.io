@@ -15,6 +15,10 @@ body {
     padding-bottom: 3rem;
 }
 
+.badge {
+    min-width: 5rem;
+}
+
 /* Masthead */
 
 .masthead {
