@@ -117,6 +117,17 @@ body {
     }
 }
 
+/* Card title */
+
+.card-title a {
+    color: black;
+    text-decoration: none;
+}
+
+.card-title a:hover {
+    color: palevioletred;
+}
+
 /* Footer */
 
 footer.footer {
