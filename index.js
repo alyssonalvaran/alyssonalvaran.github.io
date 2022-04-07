@@ -22,9 +22,9 @@ function animateValue(obj, start, end, duration) {
 
     animateValue(facilitator, 0, 27, 2700);
     setTimeout(function(){
-        animateValue(speaker, 0, 9, 900);
+        animateValue(speaker, 0, 11, 1100);
         setTimeout(function(){
-            animateValue(host, 0, 7, 700);
+            animateValue(host, 0, 8, 800);
             setTimeout(function(){ animateValue(guest, 0, 2, 200); }, 700);
         }, 900);
     }, 2700);
