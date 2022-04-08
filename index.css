@@ -2,7 +2,14 @@ html,
 body {
     width: 100%;
     height: 100%;
+
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
+}
+
+nav {
+    background-color: white;
 }
 
 section {
@@ -11,5 +18,15 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto 2rem auto 2rem;
+    margin: 2rem;
+
+    scroll-snap-align: start;
+}
+
+.social-link {
+    color:darkred;
+    text-decoration: none;
+}
+.social-link:hover {
+    color: grey;
 }

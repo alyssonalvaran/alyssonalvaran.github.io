@@ -21,32 +21,84 @@
 
     </head>
 
-    <body data-spy="scroll" data-target="#navbar">
+    <body>
 
         <!-- Navbar -->
         <nav class="navbar fixed-top navbar-expand-lg navbar-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Alysson Alvaran</a>
+                <a class="navbar-brand" href="#home">Alysson Alvaran</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link disabled" href="about.html">About</a>
-                        <a class="nav-item nav-link disabled" href="talk.html">Talk</a>
-                        <a class="nav-item nav-link disabled" href="write.html">Write</a>
+                        <a class="nav-item nav-link" href="#about">About</a>
+                        <a class="nav-item nav-link" href="#talk">Talks</a>
+                        <a class="nav-item nav-link" href="#blog">Blog</a>
+                        <a class="nav-item nav-link" href="#contact">Contact</a>
                     </div>
                 </div>
             </div>
         </nav>
 
         <!-- Home -->
-        <section>
+        <section id="home">
             <div>
                 <img src="assets/alysson.png" alt="Alysson" class="mx-auto my-2" width="200rem">
                 <h1 class="display-6">Kumusta? I'm Alysson. 👋</h1>
                 <p class="lead">I'm a software engineer and consultant based in Manila, Philippines. 🇵🇭</p>
                 <a class="btn btn-outline-secondary my-2" href="assets/resume.pdf" target="_blank">Download résumé</a>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about">
+            <div>
+                <h1 class="display-6 my-4">About</h1>
+                <p>
+                    I currently work as a Business Apps Developer at Concentrix where I mostly develop and maintain web applications and automation scripts using Python. 👩‍💻
+                </p>
+                <p>
+                    Off-work, I actively participate in the tech community as a Board Member of Python Philippines and the Python Tech Lead of Women Who Code Manila.
+                </p>
+                <p>
+                    I enjoy public speaking, writing, and having a good cup of coffee or tea. ☕
+                </p>
+                <a class="btn btn-outline-secondary my-2 disabled" href="#about">Learn more about me ➡️</a>
+            </div>
+        </section>
+
+        <!-- Talks -->
+        <section id="talk">
+            <div>
+                <h1 class="display-6">Talks</h1>
+                <p>
+                    Embracing stage fright as an introvert. Facilitated 27 study groups, gave 11 talks, hosted 8 events, and guested in 2 interviews. 🎤
+                </p>
+                <a class="btn btn-outline-secondary my-2 disabled" href="#talks">View all public speaking engagements ➡️</a>
+            </div>
+        </section>
+
+        <!-- Blog -->
+        <section id="blog">
+            <div>
+                <h1 class="display-6">Blog</h1>
+                <p>
+                    Sharing is caring! Keeping a personal journal is fun, but I also find blogging equally delightful. 📝
+                </p>
+                <a class="btn btn-outline-secondary my-2 disabled" href="#write">See what else I wrote ➡️</a>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <div>
+                <h1 class="display-6">Don't be shy, say hi!</h1>
+                <a class="social-link" href="mailto:alvaran.alysson@gmail.com">
+                    <h1 class="display-5">alvaran.alysson@gmail.com</h1>
+                </a>
+                <a class="btn btn-outline-secondary my-2" href="https://www.linkedin.com/in/alyssonalvaran/" target="_blank">LinkedIn</a>
+                <a class="btn btn-outline-secondary my-2" href="https://github.com/alyssonalvaran/" target="_blank">GitHub</a>
             </div>
         </section>
 
