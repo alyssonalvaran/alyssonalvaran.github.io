@@ -31,3 +31,13 @@ section#home {
 .link:hover {
     color: grey;
 }
+
+/* Scroll to top button */
+
+.scroll-to-top {
+    position: fixed;
+    display: none;
+    z-index: 99;
+    right: 20px;
+    bottom: 20px;
+}
