@@ -14,7 +14,10 @@ home:
 
 about:
   title: "About"
-  description: "I am a software engineer with a decade of experience working on Python applications. I actively share my knowledge by teaching Python to professionals, speaking at local and international tech events, and previously mentoring a diverse mix of beginners and career shifters at Women Who Code Manila. As a community builder, I have supported PythonPH for over ten years as a core volunteer, former board member, and PyCon PH 2023 Chair. Outside of tech, I enjoy cooking and traveling."
+  description:
+    - "For over a decade, I've been building Python applications, as well as teaching Python to professionals and speaking at tech events locally and abroad."
+    - "I have also previously mentored beginners and career shifters at Women Who Code Manila, and I've been a part of PythonPH for over ten years as a core volunteer, board member, and the PyCon PH 2023 Chair."
+    - "Off work, I'm usually putting together a multi-course menu to cook or planning my next travel itinerary."
 
 talks:
   title: "Public Speaking"
@@ -68,9 +71,11 @@ contact:
 <section id="about">
     <div>
         <h1 class="display-6">{{ page.about.title }}</h1>
+        {% for paragraph in page.about.description %}
         <p class="lead text-muted" style="max-width: 700px;">
-            {{ page.about.description }}
+            {{ paragraph }}
         </p>
+        {% endfor %}
     </div>
 </section>
 
