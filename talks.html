@@ -1,0 +1,131 @@
+---
+layout: default
+title: Talks
+
+header:
+  title: "Public Speaking"
+  description: "A collection of my public speaking, event hosting, and community educational initiatives across the regional and international tech ecosystem."
+
+tabs:
+  - id: "groups"
+    label: "Workshops"
+    count: 28
+    category: "workshop"
+    is_active: true
+  - id: "talks"
+    label: "Talks"
+    count: 12
+    category: "talk"
+    is_active: false
+  - id: "hosting"
+    label: "Hosting"
+    count: 12
+    category: "hosting"
+    is_active: false
+  - id: "interviews"
+    label: "Interviews"
+    count: 2
+    category: "interview"
+    is_active: false
+---
+<section class="mt-5 pt-5">
+
+  <div class="container py-5">
+    <div class="text-center mb-5">
+      <h1 class="display-5 mb-3">{{ page.header.title }}</h1>
+      <p class="lead text-muted mx-auto" style="max-width: 750px;">
+        {{ page.header.description }}
+      </p>
+    </div>
+
+    <!-- Tab Navigation -->
+    <ul class="nav justify-content-center border-bottom mb-5 pb-3" id="speakingTabs" role="tablist">
+      {% for tab in page.tabs %}
+      <li class="nav-item {% unless forloop.last %}border-end{% endunless %}" role="presentation">
+        <button class="nav-link {% if tab.is_active %}active{% endif %} px-4 shadow-none border-0" id="{{ tab.id }}-tab" data-bs-toggle="tab"
+          data-bs-target="#{{ tab.id }}-content" type="button" role="tab">
+          {{ tab.label }} ({{ tab.count }})
+        </button>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <!-- Tab Content -->
+    <div class="tab-content text-start" id="speakingTabsContent">
+
+      {% for tab in page.tabs %}
+      <div class="tab-pane fade {% if tab.is_active %}show active{% endif %}" id="{{ tab.id }}-content" role="tabpanel">
+        <div class="row g-3 justify-content-center">
+
+          {% assign category_items = site.data.talks | where: "category", tab.category %}
+          {% for item in category_items %}
+
+          <!-- 1. Determine Badge Colors based on the 'type' -->
+          {% case item.type %}
+            {% when 'Speaker' %}
+              {% assign badge_color = 'bg-success-subtle text-success border-success-subtle' %}
+            {% when 'Host' %}
+              {% assign badge_color = 'bg-danger-subtle text-danger border-danger-subtle' %}
+            {% when 'Facilitator' %}
+              {% assign badge_color = 'bg-warning-subtle text-warning border-warning-subtle' %}
+            {% when 'Guest' %}
+              {% assign badge_color = 'bg-info-subtle text-info border-info-subtle' %}
+            {% else %}
+              {% assign badge_color = 'bg-secondary-subtle text-secondary border-secondary-subtle' %}
+          {% endcase %}
+
+          <div class="col-12 col-lg-10">
+            <div class="p-4 border rounded-4 bg-light shadow-sm d-md-flex align-items-center justify-content-between">
+
+              <!-- Content Section -->
+              <div>
+                <span
+                  class="badge {{ badge_color }} border rounded-pill px-3 py-1 text-uppercase small fw-bold mb-2 d-inline-block">
+                  {{ item.type }}
+                </span>
+                <h4 class="h5 fw-bold mb-1">{{ item.title }}</h4>
+                <p class="text-muted small mb-2 mb-md-0">
+                  {% if item.event_html %}
+                  {{ item.event_html }}
+                  {% else %}
+                  {{ item.date }} &nbsp;|&nbsp; {{ item.location }} &nbsp;|&nbsp; {{ item.event }}
+                  {% endif %}
+                </p>
+              </div>
+
+              <!-- Buttons Section -->
+              {% if item.links.size > 0 %}
+              <div>
+                {% for link in item.links %}
+
+                <!-- 2. Determine Button Text based on the link 'type' -->
+                {% case link.type %}
+                  {% when 'recording' %}{% assign btn_text = 'Watch Stream ➡️' %}
+                  {% when 'slides' %}{% assign btn_text = 'View Slides 📄' %}
+                  {% when 'event' %}{% assign btn_text = 'Event Info 🌐' %}
+                  {% when 'photos' %}{% assign btn_text = 'View Photos 📸' %}
+                  {% when 'podcast' %}{% assign btn_text = 'Listen 🎧' %}
+                  {% when 'repo' %}{% assign btn_text = 'View Repo 💻' %}
+                  {% else %}{% assign btn_text = 'View ➡️' %}
+                {% endcase %}
+
+                <a href="{{ link.url }}" target="_blank"
+                  class="btn btn-sm btn-outline-dark px-3 rounded-pill shadow-none mb-2 mb-md-0 ms-1 talk-btn">
+                  {{ btn_text }}
+                </a>
+                {% endfor %}
+              </div>
+              {% endif %}
+
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+
+</section>

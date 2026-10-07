@@ -1,84 +1,120 @@
 ---
 layout: default
 title: Home
+
+home:
+  image:
+    src: "assets/alysson.png"
+    alt: "Illustrated chibi avatar of Alysson Alvaran"
+  title: "Kumusta? I'm Alysson. 👋"
+  description: "I'm a software engineer and consultant based in Metro Manila, Philippines. 🇵🇭"
+  button:
+    text: "Download résumé"
+    link: "assets/resume.pdf"
+
+about:
+  title: "About"
+  description: "I am a software engineer with a decade of experience working on Python applications. I actively share my knowledge by teaching Python to professionals, speaking at local and international tech events, and previously mentoring a diverse mix of beginners and career shifters at Women Who Code Manila. As a community builder, I have supported PythonPH for over ten years as a core volunteer, former board member, and PyCon PH 2023 Chair. Outside of tech, I enjoy cooking and traveling."
+
+talks:
+  title: "Public Speaking"
+  description: >-
+    Whenever I feel <em>unworthy</em> of speaking in public,
+    I remind myself how I learned from people who felt the same but did it anyway.
+    By teaching, we learn. By sharing, we care.
+    Knowledge shared is knowledge squared.
+  button:
+    text: "View all engagements ➡️"
+    link: "/talks.html"
+  stats:
+    - action: "Facilitated"
+      number: 28
+      type: "workshops"
+    - action: "Gave"
+      number: 12
+      type: "talks"
+    - action: "Hosted"
+      number: 12
+      type: "events"
+    - action: "Guested in"
+      number: 2
+      type: "interviews"
+
+contact:
+  title: "Don't be shy, say hi! 👋"
+  email: "alvaran.alysson@gmail.com"
+  socials:
+    - name: "LinkedIn"
+      url: "https://www.linkedin.com/in/alyssonalvaran/"
+    - name: "GitHub"
+      url: "https://github.com/alyssonalvaran/"
 ---
 
 <!-- Home -->
 <section id="home">
     <div>
-        <img src="assets/alysson.png" alt="Alysson" class="mx-auto my-2" width="200rem">
-        <h1 class="display-6">Kumusta? I'm Alysson. 👋</h1>
-        <p class="lead">I'm a Python developer and consultant based in Manila, Philippines. 🇵🇭</p>
-        <a class="btn btn-outline-secondary my-2 shadow-none" href="assets/resume.pdf" target="_blank">Download résumé</a>
+        <img src="{{ page.home.image.src }}" alt="{{ page.home.image.alt }}" class="mx-auto my-2" width="200rem">
+        <h1 class="display-6">{{ page.home.title }}</h1>
+        <p class="lead text-muted" style="max-width: 700px;">
+            {{ page.home.description }}
+        </p>
+        <a class="btn btn-outline-secondary my-2 shadow-none" href="{{ page.home.button.link }}" target="_blank">
+            {{ page.home.button.text }}
+        </a>
     </div>
 </section>
 
 <!-- About -->
 <section id="about">
     <div>
-        <h1 class="display-6">About</h1>
-        <p>
-            I actively volunteer as a Board Member of <a class="link" href="https://python.ph/" target="_blank">Python Philippines</a><br>
-            and the Python Tech Lead of <a class="link" href="https://www.womenwhocode.com/manila" targget="_blank">Women Who Code Manila</a>.<br>
-            I enjoy cooking, traveling, and having a good cup of coffee or tea. ☕
+        <h1 class="display-6">{{ page.about.title }}</h1>
+        <p class="lead text-muted" style="max-width: 700px;">
+            {{ page.about.description }}
         </p>
-        <a class="btn btn-outline-secondary my-2 shadow-none disabled" href="#about">Learn more about me ➡️</a>
     </div>
 </section>
 
 <!-- Talks -->
-<section id="talk">
+<section id="talk" class="py-5">
     <div>
-        <h1 class="display-6">Most recent public speaking engagements</h1>
-        <p>
-            Embracing stage fright as an introvert. Facilitated 27 study groups, gave 12 talks, hosted 10 events, and guested in 2 interviews. 🎤
-        </p>
-        <div class="my-4 pt-4" style="text-align: left;">
-            <div class="col-12 pb-4">
-                <h5>
-                    <span class="badge bg-success">Speaker</span>
-                    <a class="link" href="https://youtu.be/f0-EHHaVV6w" target="_blank">PyCon PH 2023 Opening Remarks</a>
-                </h5>
-                February 25, 2023. Online via Vito. PyCon Philippines 2023: Ugnayan.
-            </div>
-            <div class="col-12 pb-4">
-                <h5>
-                    <span class="badge bg-danger">Host</span>
-                    <a class="link" href="https://youtu.be/IVsvtN_06gQ" target="_blank">WFH Pythonista - Episode 19 Boracay Workation w/ PythonPH Kaizend</a>
-                </h5>
-                October 29, 2022. Online via YouTube Live. WFH Pythonista by Python Philippines.
-            </div>
-            <div class="col-12 pb-4">
-                <h5>
-                    <span class="badge bg-danger">Host</span>
-                    <a class="link" href="https://www.youtube.com/live/JH5HQZIfY34" target="_blank">WFH Pythonista - Episode 15 w/ David Lu and Wei Lee</a>
-                </h5>
-                June 25, 2022. Online via YouTube Live. WFH Pythonista by Python Philippines.
-            </div>
+        <div class="mb-4">
+            <h1 class="display-6">{{ page.talks.title }}</h1>
+            <p class="lead text-muted" style="max-width: 700px;">
+                {{ page.talks.description }}
+            </p>
         </div>
-        <a class="btn btn-outline-secondary shadow-none disabled" href="#talks">View all talks ➡️</a>
-    </div>
-</section>
 
-<!-- Blog -->
-<section id="blog">
-    <div>
-        <h1 class="display-6">Blog</h1>
-        <p>
-            Sharing is caring! Keeping a personal journal is fun, but I also find blogging equally delightful. 📝
-        </p>
-        <a class="btn btn-outline-secondary my-2 shadow-none disabled" href="#write">See what else I wrote ➡️</a>
+        <div class="row mb-4">
+            {% for stat in page.talks.stats %}
+            <div class="col-6 col-md-3">
+                <div class="p-4 border rounded-4 bg-light h-100 shadow-sm">
+                    <span class="text-muted small">{{ stat.action }}</span>
+                    <h2 class="display-5 fw-bolder mb-0">{{ stat.number }}</h2>
+                    <span class="text-muted small">{{ stat.type }}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="text-center mt-4">
+            <a class="btn btn-outline-secondary px-4 py-2 shadow-none" href="{{ page.talks.button.link }}">
+                {{ page.talks.button.text }}
+            </a>
+        </div>
     </div>
 </section>
 
 <!-- Contact -->
 <section id="contact">
     <div>
-        <h1 class="display-6">Don't be shy, say hi! 👋</h1>
-        <a class="link" href="mailto:alvaran.alysson@gmail.com">
-            <h3>alvaran.alysson@gmail.com</h3>
+        <h1 class="display-6">{{ page.contact.title }}</h1>
+        <a class="link" href="mailto:{{ page.contact.email }}">
+            <h3>{{ page.contact.email }}</h3>
         </a>
-        <a class="btn btn-outline-secondary my-2 shadow-none" href="https://www.linkedin.com/in/alyssonalvaran/" target="_blank">LinkedIn</a>
-        <a class="btn btn-outline-secondary my-2 shadow-none" href="https://github.com/alyssonalvaran/" target="_blank">GitHub</a>
+        {% for social in page.contact.socials %}
+        <a class="btn btn-outline-secondary my-2 shadow-none" href="{{ social.url }}" target="_blank">
+            {{ social.name }}
+        </a>
+        {% endfor %}
     </div>
 </section>

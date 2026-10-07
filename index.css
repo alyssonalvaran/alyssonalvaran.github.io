@@ -31,3 +31,29 @@ section#home {
 .link:hover {
     color: grey;
 }
+
+/* Talks */
+
+#speakingTabs .nav-link {
+    color: #6c757d;
+    font-weight: 400;
+    background-color: transparent !important;
+    transition: color 0.2s ease;
+}
+
+#speakingTabs .nav-link:hover,
+#speakingTabs .nav-link:focus {
+    color: #495057;
+    background-color: transparent !important;
+}
+
+#speakingTabs .nav-link.active {
+    color: #212529;
+    font-weight: 600;
+    background-color: transparent !important;
+}
+
+.talk-btn {
+    min-width: 160px;
+    text-align: center;
+}
